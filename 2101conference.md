@@ -50,3 +50,35 @@
 - more 
   - canary 배포, blue/green 배포 
 
+
+
+
+
+# MSA환경에서 API문서 관리하기
+
+### swagger 
+
+- 단점
+  - production code가 지저분 
+  - api 스펙만 분리해서 관리하기 어려움 (서버가 뜰때, generating됨)
+  - 검증되지 않은 api가 생성될 수 있음 
+
+
+
+### 고민
+
+- 문서를 한군데서 볼수 없다. -> swagger ui로 (open spec api 만 지키면)
+- 검증되지 않은 API를 생성할 수 있다. 
+
+> Spring Rest Doc
+>
+> - 테스트 케이스가 작성되어야 API가 만들어짐
+> - ascii, markdow 형태로 만들어짐
+
+
+
+### 해결(절충안)
+
+- RestDoc + Swagger UI 를 적절하게 생성 
+  - RestDoc은 테스트케이스가 성공해서 -> API 가 만들어짐 
+  - RestDoc 테스트 케이스를 통해서 OpenAPI 스펙을 yml, json파일로 만들어서 -> SwaggerUI로 Import 시키면 성공
