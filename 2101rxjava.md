@@ -132,7 +132,16 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 - takeUntil: 파라미터값이 observable이 최초로통지할때까지. 
 - skip: 파라미터로 전달된 숫자만큼 건너뛰고(skip) 그 다음부터 통지가 됨
 - skip(time): 파라미터로 지정한 시간 만큼 skip하고 통지가 됨
-- 
+
+
+
+> Quiz
+>
+> 1. filter(car -> car.getName() == CarMaker.SSANGYOUNG)
+> 2. takeWhile( number -> number != 10)
+> 3. skipLast(3): 마지막 3개를 제외함 
+
+
 
 
 
