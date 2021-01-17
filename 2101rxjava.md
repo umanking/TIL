@@ -119,7 +119,8 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 
 ## 리액티브 연산자(Operator) 익숙해지기
 
-[reactor 마블 다이어그램](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#flatMap-java.util.function.Function-)
+- [reactor marble diagram](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#flatMap-java.util.function.Function-)
+- [https://rxmarbles.com/](https://rxmarbles.com/)
 
 #### 생성연산자
 
