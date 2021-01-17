@@ -115,3 +115,12 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 
 
 
+
+
+## 리액티브 연산자(Operator) 익숙해지기
+
+- filter: T 타입을 받아서 boolean를 리턴하는(Predicate함수형 인터페이스를 파라미터로 받음)
+
+- distinct: sql에서 distinct와 같은 (중복이 걸러진)
+
+  
