@@ -16,8 +16,12 @@
 
 ```java
 // 랜덤문자열 만들기 
+public static String generateString(int size) {
+        char[] randomStringArray = new char[size];
+        IntStream.range(0, size).forEach(i -> randomStringArray[i] = (char) (Math.random() * 26 + 'A'));
+        return new String(randomStringArray);
+    }
 
-(char) (Math.random() * 26 + 'A')
 // Math.random() 0 ~ 1.0 사이의 값 
 // 26 알파벳 개수 
 // 'A'는 아스키코드 대문자 알파벳 시작위치 65
