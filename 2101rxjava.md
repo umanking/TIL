@@ -119,7 +119,9 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 
 ## 리액티브 연산자(Operator) 익숙해지기
 
-#### 생성연산자 
+[reactor 마블 다이어그램](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#flatMap-java.util.function.Function-)
+
+#### 생성연산자
 
 - 
 
@@ -141,7 +143,14 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 > 2. takeWhile( number -> number != 10)
 > 3. skipLast(3): 마지막 3개를 제외함 
 
+#### 변환연산자
 
+- map : 하나를 받아서 하나로변환
+- flatmap: 하나를 받아서 -> 새로운 Observable를 생산
+- flatmap: 원본데이터와 변환된 데이터를 조합해서 새로운 데이터를 통지한다 (데이터 통지 순서를 보장하지 않는다. )
+- concatMap: flatmap 과 거의 유사, 한가지 차이점이 있다. 
+  - **데이터 통지의 순서를 보장한다.** 
 
-
+- switchMap: concatMap과 마찬가지로 새로운 Observable로 반환한다. 
+  concatMap과 마찬가지로 순서를 보장하지만, 새로운 데이터가 통지되면 현재 처리중이던 작업을 바로 중단한다.
 
