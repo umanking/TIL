@@ -157,3 +157,15 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
   - 실시간 키워드 검색
     - 이전 단어질의를 중단하고, 새롭게 작성된 단어를 새롭게 질의를 한다. 
     - 이런 상황에 concatMap이 사용될 수 있다, 
+
+
+
+#### 변환연산2
+
+- groupBy: 하나의 observable을 여러개 새로운 groupedByObservable로 만든다. 
+  - 데이터를 그룹별로 묶는다기 보다는 각각의 데이터들이 그룹에 해당하는 Key를 가지게 된다. 
+  - GroupedByOservable은 getKey()를 통해 구분된 그룹을 알수 있게 해준다.
+
+- toList :통지된 데이터를 모두 List에 담아 통지한다. 
+  - 통지된 데이터는 원본 데이트를 담은 리스트 하나 이므로 Single로 반환한다.
+- toMap: 
