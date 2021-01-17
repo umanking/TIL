@@ -148,9 +148,14 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 - map : 하나를 받아서 하나로변환
 - flatmap: 하나를 받아서 -> 새로운 Observable를 생산
 - flatmap: 원본데이터와 변환된 데이터를 조합해서 새로운 데이터를 통지한다 (데이터 통지 순서를 보장하지 않는다. )
-- concatMap: flatmap 과 거의 유사, 한가지 차이점이 있다. 
+- concatMap: 
+  - flatmap 과 거의 유사, 한가지 차이점이 있다. 
   - **데이터 통지의 순서를 보장한다.** 
 
-- switchMap: concatMap과 마찬가지로 새로운 Observable로 반환한다. 
-  concatMap과 마찬가지로 순서를 보장하지만, 새로운 데이터가 통지되면 현재 처리중이던 작업을 바로 중단한다.
+- switchMap: 
+  - concatMap과 마찬가지로 새로운 Observable로 반환한다. 
+  - concatMap과 마찬가지로 순서를 보장하지만, 새로운 데이터가 통지되면 현재 처리중이던 작업을 바로 중단한다.
+  - 실시간 키워드 검색
+    - 이전 단어질의를 중단하고, 새롭게 작성된 단어를 새롭게 질의를 한다. 
+    - 이런 상황에 concatMap이 사용될 수 있다, 
 
