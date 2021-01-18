@@ -134,8 +134,6 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 - skip: 파라미터로 전달된 숫자만큼 건너뛰고(skip) 그 다음부터 통지가 됨
 - skip(time): 파라미터로 지정한 시간 만큼 skip하고 통지가 됨
 
-
-
 > Quiz
 >
 > 1. filter(car -> car.getName() == CarMaker.SSANGYOUNG)
@@ -167,5 +165,12 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
   - GroupedByOservable은 getKey()를 통해 구분된 그룹을 알수 있게 해준다.
 
 - toList :통지된 데이터를 모두 List에 담아 통지한다. 
-  - 통지된 데이터는 원본 데이트를 담은 리스트 하나 이므로 Single로 반환한다.
-- toMap: 
+
+- 통지된 데이터는 원본 데이트를 담은 리스트 하나 이므로 Single로 반환한다.
+
+- toMap: data -> (key, value) 로 쌍으로 변환이 되어서 담긴다. 
+
+> Quiz 
+>
+> 1. Observable.fromIterable(SampleData.carList()).toMap(data -> data.getCarName(), data.getCarMaker())
+
