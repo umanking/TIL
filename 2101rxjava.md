@@ -174,3 +174,20 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 >
 > 1. Observable.fromIterable(SampleData.carList()).toMap(data -> data.getCarName(), data.getCarMaker())
 
+#### 결합연산자
+
+생산라인2개 라는건, 2개의 observable이라는 의미 
+
+- merge: 여러개의 observable 통지된 데이터를 받아서 하나의 observable로 통지된다.
+  - 통지 시점이 빠른것 부터, 통지 시점이 같은 경우에는 merge() 함수의 파라미터로 먼저 지정된 Observable의 데이터 부터 통지된다.
+- concat: 하나의 observable에서 통지가 끝나면 다음 Observable에서 연이어서 통지된다.
+  - 각 observable의 통지시점과 상관없이 concat()함수의 파라미터로 먼저 입력된 observable의 데이터부터 모두 통지된후, 다음 observavle의 데이터가 통지된다.
+
+- zip: observable순차적으로 결합해서 리턴한다. 결합이 없는건 버린다. 
+  - 다수의 observable에서 통지된 데이터를 받아서 다시 하나의 observale로 통지한다.
+  - 각 observable에서 통지된 데이터가 모두 모이면 각 observable에서 **동일한 index의 데이터로** 새로운 데이터를 생성한후 통지한다.
+  - 통지하는 데이터 개수가 가장 적은 observable의 통지시점에 완료 동지 시점을 맞춘다.
+
+- combieLatest : 다수의 observable에서 통지된 데이터를 받아서 다시 하나의observable로 통지한다.
+  - 각 observable에서 데이터를 통지할때 마다 모든 observable에서 마지막으로 통지한 각 데이터를 함수형 인터페이스에 전달하고 새로운 데이터를 생성해 통지한다.
+- 
