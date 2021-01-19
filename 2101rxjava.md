@@ -190,4 +190,7 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 
 - combieLatest : 다수의 observable에서 통지된 데이터를 받아서 다시 하나의observable로 통지한다.
   - 각 observable에서 데이터를 통지할때 마다 모든 observable에서 마지막으로 통지한 각 데이터를 함수형 인터페이스에 전달하고 새로운 데이터를 생성해 통지한다.
+
+#### 에러처리연산자 
+
 - 

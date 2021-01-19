@@ -1,4 +1,4 @@
-## Note! 
+## Note!
 
 
 
@@ -29,4 +29,17 @@ public static String generateString(int size) {
 // 'A'는 아스키코드 대문자 알파벳 시작위치 65
 // (char) 형변환 double형을 char형 변환하면 문자열을 얻음
 ```
+
+## 
+
+### mysql
+
+```java
+// mysql timezone 확인하기
+select @@global.time_zone , @@session.time_zone;
+
+
+```
+
+
 
