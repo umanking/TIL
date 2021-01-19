@@ -193,4 +193,10 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 
 #### 에러처리연산자 
 
+- try-catch 문을 사용할수 없음
+- onErrorReturn
+  - 에러가 발생했을때 에러를 의미하는 데이터로 대체할 수 있다. 
+  - onErrorReturn을 호출하면 onError이벤트(소비자쪽에서)를 발생하지 않는다. 
+  - 생산자쪽에서 먼저 처리할 수 있다. 
 - 
+

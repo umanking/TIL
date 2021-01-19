@@ -37,8 +37,21 @@ public static String generateString(int size) {
 ```java
 // mysql timezone 확인하기
 select @@global.time_zone , @@session.time_zone;
+// system time zone 조회
+select @@system_time_zone;
+
+```
 
 
+
+
+
+### 비트연산 
+
+```java
+// 해당bit에 CAR_CALL_BAN 값이 존재하면 != 0 
+// 해당bit에 CAR_CALL_BAN == 0 값이 없는경우 
+bit & PassengerStateBit.CAR_CALL_BAN  == 0 
 ```
 
 
