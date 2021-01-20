@@ -227,5 +227,9 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
   - 통지된 데이터와 데이터가 통지되는데 걸린 시간을 소비자쪽에서 모두 처리할 수 있다. 
 
 - materialize / dematerialize
+
   - materialize : 통지된 데이터의 타입까지 소비자에게 전달됨 (데이터 + 메타데이터도 전달됨)
+    - 통지된 데이터와 통지된 데이터의 통지 타입자체를 Notification 객체에 담고, 이 객체를 통지한다. 
   - dematerialize: 통지된데이터의 타입을 통지하면 -> 소비자에게 데이터 자체가 전달됨 
+
+  
