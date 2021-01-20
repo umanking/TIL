@@ -198,5 +198,34 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
   - 에러가 발생했을때 에러를 의미하는 데이터로 대체할 수 있다. 
   - onErrorReturn을 호출하면 onError이벤트(소비자쪽에서)를 발생하지 않는다. 
   - 생산자쪽에서 먼저 처리할 수 있다. 
-- 
+- onErrorResumeNext
+  - 에러가 발생했을때 에러를 의미하는 Observable로 대체할 수 있다.
+  - 데이터 교체와 더불어 에러처리를 추가작업을 할 수 있다. (ex,운영에 email을 보낸다)
+- retry 
+  - 에러 발생시 재시도
 
+> ✔︎  time line이 있다는건 observable이 있다는 것 
+
+#### 유틸리티 연산자
+
+- delay: 생산자가 데이터를 생성 및 통지를 하지만, 설정한 시간만큼 소비자쪽으로 데이터를 전달을 지연시킨다.
+- delaySubscription: 주어진 시간만큼 지연시키고, 구독한한다. 
+  - 생산자가 데이터의 생성및 통지 자체를 설정한 시간만큼 지연시킨다. 
+  - delay vs delaySubscription
+    - delay는 즉시 통지하고, 소비자쪽에 전달할때 그만큼 delay시킴 
+    - delaySubscription은 구독자체를 지연시킴. 지연시간후에 통지가 됨
+
+- timeout
+
+  - 각각의 데이터 통지시, 지정된 시간안에 통지가 되지 않으면 에러를 통지한다.
+  - 에러 통지시 전달되는 에러 객체는 TimeoutException 이다.
+
+  > 네트워크 통신에서 timeout 정해진 시간안에 이뤄지지 않았을때 유용하게 사용할수 있다. 
+
+- timeInterval 
+  - 각각의 데이터가 통지되는데 걸린 시간을 통지한다.
+  - 통지된 데이터와 데이터가 통지되는데 걸린 시간을 소비자쪽에서 모두 처리할 수 있다. 
+
+- materialize / dematerialize
+  - materialize : 통지된 데이터의 타입까지 소비자에게 전달됨 (데이터 + 메타데이터도 전달됨)
+  - dematerialize: 통지된데이터의 타입을 통지하면 -> 소비자에게 데이터 자체가 전달됨 
