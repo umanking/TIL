@@ -232,4 +232,24 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
     - 통지된 데이터와 통지된 데이터의 통지 타입자체를 Notification 객체에 담고, 이 객체를 통지한다. 
   - dematerialize: 통지된데이터의 타입을 통지하면 -> 소비자에게 데이터 자체가 전달됨 
 
-  
+
+
+
+#### 조건과 불린 연산자 
+
+- all 
+  - 통지된 모든 데이터가 설정한 조건에 맞는지 판단
+  - 결과값을 한번만 통지하면 되기 때문에 true/false 값을 single로 반환한다. 
+- amb 
+  - 여러개의 observable 중에서 최초 통지시점이 가장 빠른 obseravable의 데이터만 통지되고, 나머지느 무시된다.
+- contains
+  - 파라미터의 데이터가 observable에 포함되어있는지를 판단한다. 
+  - 결과값을 한번만 통지하면 되기 때문에 true/false값을 sinlge로 반환 
+  - 결과 통지 시점은 observable에 포함된 데이터를 통지하거나 완료로 통지할때이다.
+- defaultIfEmpty
+  - 통지할데이터가 없을경우 파라미터로 입력된 값을 통지한다. (default값을 통지한다.)
+
+- sequenceEqual 
+  - 두개의 observable의 sequense가 일치하느냐로 판단 
+  - 통지 시점과 무관하게 데이터의 정합성만 판단하므로 통지 시점이 다르더라도 조건이 맞다면 true를 통지한다.
+
