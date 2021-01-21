@@ -253,3 +253,21 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
   - 두개의 observable의 sequense가 일치하느냐로 판단 
   - 통지 시점과 무관하게 데이터의 정합성만 판단하므로 통지 시점이 다르더라도 조건이 맞다면 true를 통지한다.
 
+#### 데이터 집계 연산자 
+
+- count
+
+- reduce: ref )하둡의 맵리듀스 
+
+  - observable 통지한 데이터를 이용해서 어떤 결과를 일정한 방식으로 합성한 후, 최종 결과를 반환한다.
+  - observable이 통지한 데이터가 숫자일 경우 파라미터로 지정한 함수형 인터페이스에 정의된 계산 방식으로 값을 집계 할 수 있다. 
+
+  > quiz 
+  >
+  > ```java
+  > Flux.range(1, 10)
+  >     .sort((i1, i2) -> i2 - i1)
+  >     .reduce((x, y) -> x - y)
+  >     .subscribe(System.out::println);
+  > ```
+
