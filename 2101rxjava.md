@@ -122,7 +122,50 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
 
 #### 생성연산자
 
-- 
+- interval 
+
+  - 지정한 시간 간격마다 0부터 시작하는 숫자를 통지한다.
+  - initialDelay 파라미터를 이용해서 최초 통지에 대한 대기 시간을 지정할 수 있다.
+  - 호출한 스레드와는 **<u>별도의 스레드에서 실행된다.</u>**
+  - polling 용도의 작업을 수행할 때 활용할 수 있다. 
+  - main 스레드를 delay 를 줘야지 결과값을 볼수 있다. 
+
+- range 
+
+  - 지정한 값n 부터 m개의 숫자(Integer)를 통지한다.
+  - for, while 문 등 반복문을 대체할 수있다.
+
+- timer 
+
+  - 지정한 시간이 지나면 0을 통지한다. 
+  - 0을 통지하고 onComplete()이벤트가 발생하여 종료한다.
+  - 호출한 스레드와는 별도의 스레드에서 실행된다.
+  - 특정시간을 대기한 후에 어떤 처리를 하고자 할때 활용할 수 있다.
+
+- defer
+
+  - 구독이 발생할때마다. 즉, subscribe()가 호출될때마다 새로운 observable를 생성한다.
+
+  - 선언한 시점의 데이터를 통지하는 것이 아니라 호출시점의 데이터를 통지한다.
+
+  - 데이터 생성을 미루는 효과가 있기 때문에 최신 데이터를 얻고자 할 때 활용할 수 있다.
+
+  - ```java
+    Mono<LocalDateTime> just = Mono.just(LocalDateTime.now());
+    Mono<LocalDateTime> defer = Mono.defer(() -> Mono.just(LocalDateTime.now()));
+    
+    just.subscribe(data -> log.info("구독1 just:  " + data));
+    defer.subscribe(data -> log.info("구독1 defer: " + data));
+    
+    Thread.sleep(3000L);
+    
+    just.subscribe(data -> log.info("구독2 just:  " + data));
+    defer.subscribe(data -> log.info("구독2 defer: " + data));
+    ```
+
+    
+
+  
 
 #### 필터링 연산자
 
