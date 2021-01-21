@@ -36,9 +36,7 @@ public static String generateString(int size) {
 
 ```java
 // mysql timezone 확인하기
-select @@global.time_zone , @@session.time_zone;
-// system time zone 조회
-select @@system_time_zone;
+select @@global.time_zone , @@session.time_zonem, @@system_time_zone;
 
 ```
 
