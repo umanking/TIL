@@ -1,7 +1,5 @@
 ## Note!
 
-
-
 ### block, non-blocking , sync async
 
 - block, non-block: 제어권에 관한이야기
@@ -11,10 +9,6 @@
   - 여기서 궁금한것? 그럼 결과값은? 
 
 - Sync, Async: (시간 관점) **제어권을** **반환하는** **시간**과 **결과값을** **반환하는** **시간**이 같으면 동기, 같지 않으면 비동기
-
-
-
-
 
 ```java
 // 랜덤문자열 만들기 
@@ -34,13 +28,10 @@ public static String generateString(int size) {
 
 ### mysql
 
-```java
+```sql
 // mysql timezone 확인하기
-select @@global.time_zone , @@session.time_zonem, @@system_time_zone;
-
+select @@system_time_zone, @@global.time_zone, @@session.time_zone; 
 ```
-
-
 
 
 
@@ -53,4 +44,29 @@ bit & PassengerStateBit.CAR_CALL_BAN  == 0
 ```
 
 
+
+## Database
+
+- 동일한 subject인경우 version 최신순으로 데이터 조회 할때 (CTE, rank() over(partiton by) 이용)
+
+```sql
+with target as (
+  select *, rank() over(partition by subject order by version) rk from table 
+)
+select * from target where rk = 1;
+```
+
+
+
+- 데이터의 정합성을 위해서, unique_key 인덱스를 걸어줘야 한다. 
+
+  - ```sql
+     당연하지만, 인덱싱 순서도 중요함!
+    ALTER TABLE `terms` 
+    ADD UNIQUE INDEX `unique_key` (`subject` ASC, `version` ASC,) VISIBLE;
+    ```
+
+  - applicaiton단에서는 그에 맞는 Wrapping 해서 exception을 처리해야 한다. 
+
+  
 

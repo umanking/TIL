@@ -163,7 +163,16 @@ RxJava에서는 Backpressure stretegy 를 통해서 flowable 이 통지대기중
     defer.subscribe(data -> log.info("구독2 defer: " + data));
     ```
 
-    
+- fromIterable
+
+  - iterable 인터페이스를  구현한 객체를 전달받아서 통지한다.
+  - 전달받은 순서대로 통지한다.
+
+- fromFuture
+
+  - Future 인터페이스는 자바5에서 비동기 처리를 위해 추가된 동시성API이다
+  - 시간이 오래걸리는 작업은 Future를 반환하는 ExecutorService에게 맡기고 비동기로 다른작업을 수행 할 수 있다.
+  - Java8에서는 CompletableFuture 클래스를 통해 구현이 간결해졌다.
 
   
 
