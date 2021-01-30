@@ -45,6 +45,10 @@ bit & PassengerStateBit.CAR_CALL_BAN  == 0
 
 
 
+- &~ 해서 기존꺼 빼고 |= 해서 새로운거 넣고
+
+
+
 ## Database
 
 - 동일한 subject인경우 version 최신순으로 데이터 조회 할때 (CTE, rank() over(partiton by) 이용)
