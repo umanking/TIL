@@ -1,5 +1,9 @@
 
 
+https://docs.spring.io/spring-framework/docs/5.0.6.RELEASE/spring-framework-reference/core.html#spring-core
+
+심심해서 읽는 Spring Framework Documentaion …… 
+
 - ioc는 aop의 기술에 매우 근접해있다. 
 - spring에는 자체 aop를 포함하고, 이는 자바 EE에서의 AOP의 80% 커버한다. 
 
