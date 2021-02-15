@@ -21,3 +21,4 @@ https://docs.spring.io/spring-framework/docs/5.0.6.RELEASE/spring-framework-refe
 - ApplicationContext는 BeanFactory의 sub-interface 인데, Spring AOP의 특징들과 쉽게 통합할수 있다. 
 - 이 챕터에서는 ApplicationContext가 완전 독점적으로 Spring Ioc container를 설명한다.
 - 빈? Spring Ioc Conatiner에서 관리되는 Object들을 빈이라고 부른다. 빈들은 configuration metadata에 반영이 된다. (컨테이너에 의해서)
+
