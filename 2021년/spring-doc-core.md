@@ -22,3 +22,16 @@ https://docs.spring.io/spring-framework/docs/5.0.6.RELEASE/spring-framework-refe
 - 이 챕터에서는 ApplicationContext가 완전 독점적으로 Spring Ioc container를 설명한다.
 - 빈? Spring Ioc Conatiner에서 관리되는 Object들을 빈이라고 부른다. 빈들은 configuration metadata에 반영이 된다. (컨테이너에 의해서)
 
+### container overview
+
+- applicationContext는 container를 나타낸다. 
+- container들이 configuration metadata를 읽어서 object들이 만들어지고, 조합되고, 설정하는 것들을 관리한다.
+
+- ![container magic](https://docs.spring.io/spring-framework/docs/5.0.6.RELEASE/spring-framework-reference/images/container-magic.png)
+
+- configuration metadata에 대해서 XML로 구성되어 있으나, 요즘에는 java-based configuration으로 만든다. 
+
+
+
+
+
